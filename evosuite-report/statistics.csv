@@ -1,0 +1,6 @@
+TARGET_CLASS,criterion,Size,Length,BranchCoverage,MutationScore
+com.example.demo.util.Constants,BRANCH,1,1,1.0,1.0
+com.example.demo.SemesterCoursesSuggestion,BRANCH,7,65,0.9878048780487805,0.2625418060200669
+com.example.demo.model.Course,BRANCH,17,45,1.0,0.5192307692307693
+com.example.demo.model.CourseSchedule,BRANCH,14,43,1.0,0.2
+com.example.demo.model.Grade,BRANCH,7,20,1.0,0.6666666666666666
