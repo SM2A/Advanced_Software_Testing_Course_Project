@@ -26,6 +26,3 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           path: evosuite-report
-      - uses: actions/upload-artifact@v3
-        with:
-          path: evosuite-test
