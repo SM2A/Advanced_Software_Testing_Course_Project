@@ -1,0 +1,31 @@
+name: Maven CI
+
+on:
+  push:
+    branches: "*"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Compile
+        run: mvn compile --file pom.xml
+      - name: Add vm options
+        run: export JDK_JAVA_OPTIONS="--add-opens java.base/java.util=ALL-UNNAMED --add-opens java.desktop/java.awt=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED"
+      - name: Test
+        run: java -jar evosuite-1.2.0.jar -target target/classes -criterion branch -Doutput_variables=TARGET_CLASS,criterion,Size,Length,BranchCoverage,MutationScore
+      - uses: actions/upload-artifact@v3
+        with:
+          path: evosuite-report
+      - uses: actions/upload-artifact@v3
+        with:
+          path: evosuite-test
