@@ -26,3 +26,17 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           path: evosuite-report
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.11"
+      - name: Generate Report
+        run: python generate_report.py
+      - name: Commit Report
+        continue-on-error: true
+        run: |
+          git config --global user.name 'Report-Bot'
+          git config --global user.email '<>'
+          git add README.md
+          git commit -m "README.md report"
+          git push
