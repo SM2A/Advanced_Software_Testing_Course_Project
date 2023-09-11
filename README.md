@@ -1,3 +1,10 @@
+# Advanced Software Testing Course Project
+
+This repository contains my Advanced Software Testing course projects (Spring 2023) at the University of Tehran.
+
+*Advanced Software Testing is one of the master's courses.*
+
+
 |TARGET_CLASS|criterion|Size|Length|BranchCoverage|MutationScore|
 |:----:|:----:|:----:|:----:|:----:|:----:|
 |com.example.demo.model.Course|BRANCH|17|49|1.0|0.6956521739130435|
